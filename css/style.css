@@ -1,1 +1,67 @@
+:root{
+    --background:#170d29;
+    --text-color: #faefefe3;
+    --back-card: #03193f;
+    --back-button:#2f4f4f;
+    --color-button:#fff8dc;
+    --back-li:#3b2908;
+}
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--text-color);
+}
+section{
+    background-color: var(--back-card);
+    max-width: 400px;
+    max-height: 600px;
+    margin: 10px;
+    padding: 14px;
+    border-radius: 12px;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+input{
+    padding: 6px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--background);
+    color: var(--text-color);
+}
+button{
+    padding: 5px;
+    background-color: #2f4f4f;
+    color: #fff8dc;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+ul{
+    list-style: none;
+    margin: 10px auto;
+}
+li{
+    background-color: var(--back-li);
+    border-radius: 12px;
+    border: solid 2px;
+    margin-top: 4px;
+    padding-left: 7px;
+    font-size: 18px;
+}
+.feito{
+    text-decoration: line-through;
+    color: rgb(155, 148, 148);
+}
