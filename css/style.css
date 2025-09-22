@@ -1,11 +1,5 @@
-:root{
-    --background:#170d29;
-    --text-color: #faefefe3;
-    --back-card: #03193f;
-    --back-button:#2f4f4f;
-    --color-button:#fff8dc;
-    --back-li:#3b2908;
-}
+@import url(reset.css);
+@import url(variable.css);
 
 *{
     padding: 0;
@@ -16,7 +10,8 @@ main{
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: var(--background);
+    align-items: center;
+    background: linear-gradient(to right, var(--background), var(--background1));
     color: var(--text-color);
 }
 section{
