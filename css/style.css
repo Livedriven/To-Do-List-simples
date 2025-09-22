@@ -60,3 +60,9 @@ li{
     text-decoration: line-through;
     color: rgb(155, 148, 148);
 }
+
+@media(max-width:500px){
+    main{
+        flex-direction: column;
+    }
+}
