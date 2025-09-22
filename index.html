@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <div>
+                <label for="adicionandoTarefa">Adicione uma tarefa</label>
+                <input type="text" id="entrada" name="adicionandoTarefa" placeholder="Digite o nome da tarefa">
+                <button id="btn">Adicionar</button>
+                <button id="btnClean">Limpar</button>
+                <ul id="imprimir"></ul>
+            </div>
+        </section>
+        <section>
+            <div>
+                <label for="filtrandoLista">Filtro</label>
+                <input type="text" id="filtro" name="filtrandoLista" placeholder="Digite oque você deseja filtrar">
+                <ul id="imprimirFiltro"></ul>     
+            </div>
+        </section>
+    </main>    
+    <script src="script.js"></script>
+</body>
+</html>
