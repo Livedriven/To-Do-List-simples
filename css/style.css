@@ -65,7 +65,7 @@ li{
     main{
         flex-direction: column;
     }
-    section{
-        margin-top: 10px;
+    #entrada{
+        display: block;
     }
 }
