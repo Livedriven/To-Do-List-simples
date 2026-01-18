@@ -1,4 +1,4 @@
-const lista = [];
+let lista = [];
 const inputEntrada = document.getElementById('entrada');
 const btn = document.getElementById('btn');
 const btnClean = document.getElementById('btnClean');
@@ -10,89 +10,69 @@ const ulFiltro = document.getElementById('imprimirFiltro');
 
 // Adiciona tarefa
 function adicionarTarefa(tarefa) {
-  lista.push({nome:tarefa, concluido:false});
-  renderizar();
+  const id = crypto.randomUUID();
+  lista = [...lista, {id, nome: tarefa, concluido: false}];
+  renderizarLista(lista, ul);
 }
 
 // Renderiza qualquer lista em qualquer <ul>
 function renderizarLista(array, ulDestino) {
   ulDestino.innerHTML = "";
 
-  array.forEach((item, index) => {
+  array.forEach((item) => {
     let li = document.createElement('li');
-    let button = document.createElement('button');
+    let div = document.createElement('div');
+    let excluir = document.createElement('button');
     let concluido = document.createElement('button');
 
     li.textContent = item.nome;
     if(item.concluido)li.classList.add('feito');
 
-    button.textContent = "❌";
-    button.classList.add("excluir");
-    button.dataset.index = index;
+    excluir.textContent = "❌";
+    excluir.classList.add("excluir");
 
     concluido.textContent = "✅";
     concluido.classList.add('concluido');
-    concluido.dataset.index = index;
-
-    li.appendChild(concluido);
-    li.appendChild(button);
+    
+    li.appendChild(div);
+    div.appendChild(concluido);
+    div.appendChild(excluir);
     ulDestino.appendChild(li);
 
     // evento de excluir
-    button.addEventListener("click", () => excluirItem(index));
-    concluido.addEventListener('click', () => concluirItem(index));
+    excluir.addEventListener("click", () => excluirItem(item.id));
+    concluido.addEventListener('click', () => concluirItem(item.id));
   });
 }
 
 // Renderiza lista principal e a filtrada (se houver filtro ativo)
-function renderizar() {
-  renderizarLista(lista, ul);
-
+function renderizarFiltro() {
   let termo = inputFiltro.value.trim().toLowerCase();
   if (termo) {
-    const filtrados = lista
-      .map((item, index) => ({ item, index }))
-      .filter(obj => obj.item.nome.toLowerCase().includes(termo));
+    const filtrados = lista.filter(item => item.nome.toLowerCase().includes(termo));
 
     ulFiltro.innerHTML = "";
-    filtrados.forEach(obj => {
-      let li = document.createElement("li");
-      let button = document.createElement("button");
-      let concluido = document.createElement('button');
-
-      li.textContent = obj.item.nome;
-      if(obj.item.concluido)li.classList.add('feito');
-
-      button.textContent = "❌";
-      button.classList.add("excluir");
-      button.dataset.index = obj.index;
-
-      concluido.textContent = "✅";
-      concluido.classList.add('concluido');
-      concluido.dataset.index = obj.index;
-
-      li.appendChild(concluido);
-      li.appendChild(button);
-      ulFiltro.appendChild(li);
-
-      button.addEventListener("click", () => excluirItem(obj.index));
-      concluido.addEventListener('click', () => concluirItem(obj.index));
-    });
+    renderizarLista(filtrados, ulFiltro);
   } else {
     ulFiltro.innerHTML = "";
   }
 }
 
 // Excluir item
-function excluirItem(index) {
-  lista.splice(index, 1);
-  renderizar();
+function excluirItem(id) {
+  lista = lista.filter(item => item.id !== id);
+  renderizarLista(lista, ul);
+  renderizarFiltro();
 }
 
-function concluirItem(index){
-  lista[index].concluido = !lista[index].concluido;
-  renderizar()
+function concluirItem(id){
+  const task = lista.find(item => item.id === id);
+  if(!task) return;
+  task.concluido = !task.concluido;
+  renderizarLista(lista,ul);
+  renderizarFiltro();
 }
+
 // ---------- Eventos ----------
 
 // Adicionar tarefa
@@ -106,8 +86,10 @@ btn.addEventListener("click", () => {
 // Limpar lista
 btnClean.addEventListener("click", () => {
   lista.length = 0;
-  renderizar();
+  renderizarLista(lista, ul);
 });
 
 // Filtrar em tempo real (UX melhor que botão)
-inputFiltro.addEventListener("input", renderizar);
+inputFiltro.addEventListener("keyup", () => {
+  renderizarFiltro();
+});
