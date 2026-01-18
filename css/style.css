@@ -1,11 +1,6 @@
 @import url(reset.css);
 @import url(variable.css);
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 main{
     min-height: 100vh;
     display: flex;
@@ -41,24 +36,29 @@ button{
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    margin-top: 10px;
-    margin-left: 7px;
+    margin: 2px;
 }
 ul{
     list-style: none;
     margin: 10px auto;
 }
 li{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: var(--back-li);
-    border-radius: 12px;
-    border: solid 2px;
+    border-radius: 10px;
+    border: solid 1.5px;
     margin-top: 4px;
-    padding-left: 7px;
+    padding: 10px;
+    width: 80%;
+    height: 70px;
     font-size: 18px;
 }
 .feito{
     text-decoration: line-through;
-    color: rgb(155, 148, 148);
+    color: #000000;
+    background-color: #18fb3e
 }
 
 @media(max-width:500px){
