@@ -1,4 +1,5 @@
 let lista = [];
+const storange = localStorage;
 const inputEntrada = document.getElementById('entrada');
 const btn = document.getElementById('btn');
 const btnClean = document.getElementById('btnClean');
@@ -8,16 +9,21 @@ const ulFiltro = document.getElementById('imprimirFiltro');
 
 // ---------- Funções ----------
 
+function save (){
+    storange.setItem('taks', JSON.stringify(lista));
+}
+
 // Adiciona tarefa
 function adicionarTarefa(tarefa) {
   const id = crypto.randomUUID();
   lista = [...lista, {id, nome: tarefa, concluido: false}];
-  renderizarLista(lista, ul);
+  save();
+  renderizarLista(lista,ul);
 }
 
 // Renderiza qualquer lista em qualquer <ul>
-function renderizarLista(array, ulDestino) {
-  ulDestino.innerHTML = "";
+function renderizarLista(array,ul) {
+  ul.innerHTML = "";
 
   array.forEach((item) => {
     let li = document.createElement('li');
@@ -37,7 +43,7 @@ function renderizarLista(array, ulDestino) {
     li.appendChild(div);
     div.appendChild(concluido);
     div.appendChild(excluir);
-    ulDestino.appendChild(li);
+    ul.appendChild(li);
 
     // evento de excluir
     excluir.addEventListener("click", () => excluirItem(item.id));
@@ -58,19 +64,24 @@ function renderizarFiltro() {
   }
 }
 
-// Excluir item
-function excluirItem(id) {
-  lista = lista.filter(item => item.id !== id);
+// função orquestradora
+
+function atualizarUI() {
   renderizarLista(lista, ul);
   renderizarFiltro();
 }
 
+// Excluir item
+function excluirItem(id) {
+  lista = lista.filter(item => item.id !== id);
+  save();
+  atualizarUI()
+}
+
 function concluirItem(id){
-  const task = lista.find(item => item.id === id);
-  if(!task) return;
-  task.concluido = !task.concluido;
-  renderizarLista(lista,ul);
-  renderizarFiltro();
+  lista = lista.map(item => item.id === id ? {...item, concluido: !item.concluido} : item);
+  save();
+  atualizarUI()
 }
 
 // ---------- Eventos ----------
@@ -85,7 +96,8 @@ btn.addEventListener("click", () => {
 
 // Limpar lista
 btnClean.addEventListener("click", () => {
-  lista.length = 0;
+  lista = [];
+  save()
   renderizarLista(lista, ul);
 });
 
@@ -93,3 +105,11 @@ btnClean.addEventListener("click", () => {
 inputFiltro.addEventListener("keyup", () => {
   renderizarFiltro();
 });
+
+function carregarDoStorage() {
+    const dados = JSON.parse(storange.getItem('taks')) || [];
+    lista = dados;
+    renderizarLista(lista, ul);
+}
+
+window.onload = carregarDoStorage;
