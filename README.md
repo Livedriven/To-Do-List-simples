@@ -1,36 +1,41 @@
-# 📝 To‑Do List com Persistência de Dados (LocalStorage)
+# 📝 To-Do List com Persistência de Dados (LocalStorage)
 
-Aplicação de **lista de tarefas** desenvolvida com **HTML, CSS e JavaScript puro**, com foco em **arquitetura simples**, **boas práticas de manipulação do DOM** e **persistência de dados no navegador via LocalStorage**.
+Aplicação de **gerenciamento de tarefas** desenvolvida com **HTML, CSS e JavaScript vanilla**, com foco em **arquitetura limpa**, **boas práticas de manipulação do DOM** e **persistência de estado no navegador por meio do LocalStorage**.
 
-O projeto vai além do básico: permite **criar, remover, concluir e filtrar tarefas em tempo real**, mantendo o estado salvo mesmo após recarregar a página.
+O projeto vai além de uma implementação básica ao oferecer **criação, exclusão, conclusão e filtragem dinâmica de tarefas em tempo real**, preservando o estado da aplicação mesmo após recarregamentos ou encerramento da sessão.
 
 ---
-## Link do Projeto no Pages: **https://livedriven.github.io/To-Do-List-simples/**
+
+## 🌐 Demonstração
+
+**GitHub Pages:**  
+https://livedriven.github.io/To-Do-List-simples/
+
 ---
 
 ## 🎯 Objetivo do Projeto
 
-Este projeto foi desenvolvido como exercício prático para consolidar conceitos fundamentais do **JavaScript moderno**, simulando um problema real do dia a dia.
+Este projeto foi desenvolvido como exercício prático para consolidar fundamentos do **JavaScript moderno**, simulando um cenário real de aplicação front-end orientada a estado e persistência de dados.
 
-Principais objetivos:
+Os principais objetivos incluem:
 
-* Trabalhar com **estado da aplicação** usando arrays de objetos
-* Entender e aplicar **persistência de dados com LocalStorage**
-* Melhorar organização e legibilidade do código
-* Praticar **renderização dinâmica do DOM** sem frameworks
-* Evoluir pensamento lógico e estrutural como desenvolvedor front‑end
+- Gerenciar o **estado da aplicação** utilizando arrays de objetos  
+- Implementar **persistência de dados no navegador com LocalStorage**  
+- Estruturar código com foco em **legibilidade, modularidade e manutenibilidade**  
+- Aplicar **renderização dinâmica do DOM sem uso de frameworks**  
+- Desenvolver **raciocínio lógico e arquitetura de aplicações front-end**
 
 ---
 
 ## 🚀 Funcionalidades
 
-* ➕ Adicionar novas tarefas
-* ✅ Marcar tarefas como concluídas (toggle)
-* ❌ Excluir tarefas individualmente
-* 🧹 Limpar toda a lista
-* 🔍 Filtrar tarefas em tempo real
-* 💾 Persistência automática usando **LocalStorage**
-* 🔄 Recuperação automática das tarefas ao recarregar a página
+- ➕ Criação de novas tarefas  
+- ✅ Alternância de status (concluída / pendente)  
+- ❌ Remoção individual de tarefas  
+- 🧹 Limpeza completa da lista  
+- 🔍 Filtragem em tempo real por texto  
+- 💾 Salvamento automático no **LocalStorage**  
+- 🔄 Restauração automática do estado ao recarregar a página  
 
 ---
 
@@ -38,30 +43,30 @@ Principais objetivos:
 
 ### JavaScript
 
-* Manipulação do DOM (`getElementById`, `createElement`, `appendChild`)
-* Eventos (`click`, `keyup`, `load`)
-* Estrutura de dados com **Array de Objetos**
-* Atualização imutável do estado (`map`, `filter`, spread operator)
-* Identificadores únicos com `crypto.randomUUID()`
-* Persistência com `localStorage`
-* Serialização e desserialização com `JSON.stringify` e `JSON.parse`
-* Função orquestradora para sincronizar UI e estado
+- Manipulação do DOM (`getElementById`, `createElement`, `appendChild`)  
+- Gerenciamento de eventos (`click`, `keyup`, `load`)  
+- Estruturação de dados com **Array de Objetos**  
+- Atualização imutável de estado (`map`, `filter`, spread operator)  
+- Geração de identificadores únicos com `crypto.randomUUID()`  
+- Persistência de dados via `localStorage`  
+- Serialização e desserialização com `JSON.stringify` e `JSON.parse`  
+- Função orquestradora para **sincronização entre estado e interface**
 
 ### CSS
 
-* Reset de estilos para consistência
-* Uso de **CSS Variables** para padronização de cores
-* Layout flexível com **Flexbox**
-* Feedback visual para tarefas concluídas
-* Responsividade básica com **Media Query**
+- Reset de estilos para padronização cross-browser  
+- Uso de **CSS Variables** para consistência visual  
+- Layout responsivo com **Flexbox**  
+- Feedback visual para estados de tarefas  
+- Responsividade básica com **Media Queries**
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **HTML5** — Estrutura semântica
-* **CSS3** — Estilização, variáveis e responsividade
-* **JavaScript (ES6+)** — Lógica, estado e persistência
+- **HTML5** — Estrutura semântica e acessível  
+- **CSS3** — Estilização, variáveis e responsividade  
+- **JavaScript (ES6+)** — Lógica de negócio, estado e persistência  
 
 ---
 
@@ -79,53 +84,51 @@ Principais objetivos:
 
 ---
 
-## 🔍 Como Funciona a Persistência
+🔍 Persistência de Dados
+A aplicação utiliza o LocalStorage como mecanismo de armazenamento local para preservar o estado da lista de tarefas:
 
-A aplicação utiliza o **LocalStorage** para manter os dados salvos no navegador:
+As tarefas são mantidas em um array de objetos
 
-* As tarefas são armazenadas em um array de objetos
-* Cada alteração (adicionar, excluir ou concluir) atualiza o array
-* O array é convertido para JSON e salvo no LocalStorage
-* Ao carregar a página, os dados são recuperados e renderizados automaticamente
+Cada modificação (criação, remoção ou alteração de status) atualiza o estado global
 
-Isso garante que nenhuma tarefa seja perdida ao recarregar ou fechar o navegador.
+O estado é serializado em formato JSON e armazenado no LocalStorage
+
+No carregamento da página, os dados são recuperados, desserializados e renderizados automaticamente
+
+Esse fluxo garante continuidade da experiência do usuário, mesmo após recarregar ou fechar o navegador.
 
 ---
 
 ## ▶️ Como Executar o Projeto
+Clone o repositório:
 
-1. Clone o repositório:
+  - git clone https://github.com/Livedriven/To-Do-List-simples.git
+Acesse o diretório do projeto
 
-   ```bash
-   git clone https://github.com/Livedriven/To-Do-List-simples.git
-   ```
-2. Acesse a pasta do projeto
-3. Abra o arquivo `index.html` no navegador
+  - Abra o arquivo index.html em seu navegador
 
-Ou visualize diretamente via **GitHub Pages**, se disponível.
+Ou utilize a versão hospedada via GitHub Pages.
 
 ---
 
-## 📌 Possíveis Melhorias Futuras
+## 📌 Possíveis Evoluções
 
-* Edição do texto das tarefas
-* Filtro por status (concluídas / pendentes)
-* Contador de tarefas
-* Persistência separada para filtros
-* Melhorias de acessibilidade (ARIA)
-* Animações suaves para ações do usuário
+  - Edição inline de tarefas
+  - Filtros por status (concluídas / pendentes)
+  - Contador dinâmico de tarefas
+  - Persistência independente para preferências de filtro
+  - Melhorias de acessibilidade (ARIA e navegação por teclado)
+  - Animações e transições para feedback de ações
 
 ---
 
 ## 🧑‍💻 Autor
+Desenvolvido por Richard Henrique
 
-Desenvolvido por **Richard Henrique**
-
-Projeto criado com foco em **aprendizado contínuo**, prática de **JavaScript puro** e construção de base sólida para aplicações front‑end mais complexas.
+Projeto criado com foco em aprendizado contínuo, domínio de JavaScript vanilla e construção de uma base sólida para aplicações front-end escaláveis e de maior complexidade.
 
 ---
 
 ## 📜 Licença
-
-Projeto livre para fins de estudo e aprendizado.
-Sinta‑se à vontade para clonar, modificar e evoluir 🚀
+Projeto de uso livre para fins educacionais e estudo.
+Sinta-se à vontade para clonar, modificar e evoluir 🚀
