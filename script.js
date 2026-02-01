@@ -1,8 +1,12 @@
 let lista = [];
+
 const storange = localStorage;
+
 const inputEntrada = document.getElementById('entrada');
+
 const btn = document.getElementById('btn');
 const btnClean = document.getElementById('btnClean');
+
 const ul = document.getElementById('imprimir');
 const inputFiltro = document.getElementById('filtro');
 const ulFiltro = document.getElementById('imprimirFiltro');
@@ -64,6 +68,13 @@ function renderizarFiltro() {
   }
 }
 
+// renderiza a lista guarda no localStorange
+function carregarDoStorage() {
+    const dados = JSON.parse(storange.getItem('taks')) || [];
+    lista = dados;
+    renderizarLista(lista, ul);
+}
+
 // função orquestradora
 
 function atualizarUI() {
@@ -101,15 +112,9 @@ btnClean.addEventListener("click", () => {
   renderizarLista(lista, ul);
 });
 
-// Filtrar em tempo real (UX melhor que botão)
+// Filtrar em tempo real (UX melhor)
 inputFiltro.addEventListener("keyup", () => {
   renderizarFiltro();
 });
-
-function carregarDoStorage() {
-    const dados = JSON.parse(storange.getItem('taks')) || [];
-    lista = dados;
-    renderizarLista(lista, ul);
-}
 
 window.onload = carregarDoStorage;
