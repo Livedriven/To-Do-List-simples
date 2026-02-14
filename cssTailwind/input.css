@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-    /* Light Theme - Clarity SaaS */
     --cor-fundo: #F8FAFC;
     --cor-card: #FFFFFF;
     --cor-borda: #E2E8F0;
@@ -17,7 +16,6 @@
   }
 
   .dark {
-    /* Dark Theme - Focus Dark */
     --cor-fundo: #0F172A;
     --cor-card: #1E293B;
     --cor-borda: #334155;
