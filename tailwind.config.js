@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class', // Essencial para ativar via classe no HTML
-  content: ["./*.{html,js}"],
+  content: ["./**/*.{html,js}"],
   theme: {
     colors: {
       transparent: 'transparent',

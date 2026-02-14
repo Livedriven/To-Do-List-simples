@@ -6,25 +6,25 @@
     <title>Lista de tarefas</title>
     <link rel="stylesheet" href="./cssTailwind/output.css">
 </head>
-<body>
-    <main class="">
-        <section>
+<body class="bg-fundo">
+    <main class="bg-fundo min-h-96 flex itens-center justify-center">
+        <section class="bg-card w-96 h-auto m-2 p-3.5 rounded-xl border border-borda">
             <div>
-                <label for="adicionandoTarefa">Adicione uma tarefa</label>
-                <input type="text" id="entrada" name="adicionandoTarefa" placeholder="Digite o nome da tarefa">
-                <button id="btn">Adicionar</button>
-                <button id="btnClean">Limpar</button>
-                <ul id="imprimir"></ul>
+                <label for="adicionandoTarefa" class="text-texto-base block mb-2.5 text-sm text-center">Adicione uma tarefa</label>
+                <input class="p-1.5 rounded-xl bottom-0.5 border border-borda" type="text" id="entrada" name="adicionandoTarefa" placeholder="Digite o nome da tarefa">
+                <button id="btn" class="bg-primaria hover:bg-primaria-hover p-1.5 rounded-xl cursor-pointer m-0.5 border border-borda">Adicionar</button>
+                <button id="btnClean" class="border border-borda">Limpar</button>
+                <ul id="imprimir" class="list-none m-2.5 mr-auto"></ul>
             </div>
         </section>
-        <section>
+        <section class="bg-card w-96 h-auto m-2 p-3.5 rounded-xl flex items-center flex-col border border-borda">
             <div>
-                <label for="filtrandoLista">Filtro</label>
-                <input type="text" id="filtro" name="filtrandoLista" placeholder="Digite oque você deseja filtrar">
-                <ul id="imprimirFiltro"></ul>     
+                <label for="filtrandoLista" class="text-texto-base block text-center">Filtro</label>
+                <input class="p-1.5 rounded-xl border border-borda text-texto-sub" type="text" id="filtro" name="filtrandoLista" placeholder="Digite oque você deseja filtrar">
+                <ul id="imprimirFiltro" class="list-none m-2.5 mr-auto"></ul>     
             </div>
         </section>
     </main>    
-    <script src="script.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
 </body>
 </html>
