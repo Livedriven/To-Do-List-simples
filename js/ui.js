@@ -17,7 +17,8 @@ export function renderizarLista(array, ul, onExcluir, onConcluir) {
       "flex-col",
       "items-center",
       "border",
-      "bg-fundo",
+      "bg-teal-200",
+      "dark:bg-indigo-400",
       "border-borda",
       "text-texto-base",
       "rounded-xl",
@@ -27,6 +28,8 @@ export function renderizarLista(array, ul, onExcluir, onConcluir) {
     span.textContent = item.nome;
 
     if (item.concluido) {
+      li.classList.remove("bg-teal-200");
+      li.classList.remove("dark:bg-indigo-400")
       li.classList.add("bg-sucesso");
       span.classList.add("text-gray-200", "line-through")
     }
