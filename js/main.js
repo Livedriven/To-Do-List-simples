@@ -1,11 +1,13 @@
 // main.js
 
 import * as store from "./store.js";
-import { renderizarLista, filtrar} from "./ui.js";
+import { renderizarLista, filtrar } from "./ui.js";
+import * as theme from './theme.js';
 
 const inputEntrada = document.getElementById("entrada");
 const btn = document.getElementById("btn");
 const btnClean = document.getElementById("btnClean");
+const btnTheme = document.getElementById("btn-theme");
 
 const ul = document.getElementById("imprimir");
 const inputFiltro = document.getElementById("filtro");
@@ -34,6 +36,12 @@ function handleConcluir(id) {
   atualizarUI();
 }
 
+btnTheme.addEventListener("click", () => {
+  document.body.classList.toggle('dark')
+  const atualTema = document.body.classList.contains('dark') ? "dark" : ""
+  theme.salvarTheme(atualTema);
+});
+
 btn.addEventListener("click", () => {
   const tarefa = inputEntrada.value.trim();
   if (tarefa) {
@@ -46,13 +54,16 @@ btn.addEventListener("click", () => {
 
 btnClean.addEventListener("click", () => {
   store.limparLista();
-  store.salvar();
   atualizarUI();
 });
 
 inputFiltro.addEventListener("keyup", atualizarUI);
 
 window.onload = () => {
+  const tema = theme.carregarTheme();
+  if(tema === "dark"){
+    document.body.classList.add(tema);
+  }
   store.carregar();
   atualizarUI();
 };

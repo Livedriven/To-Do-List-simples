@@ -18,23 +18,23 @@ export function salvar() {
 
 export function adicionar(tarefa) {
   const id = crypto.randomUUID();
-  lista = [...lista, { id, nome: tarefa, concluido: false }];
+  lista.push({ id, nome: tarefa, concluido: false });
   salvar();
 }
 
 export function excluir(id) {
-  lista = lista.filter(item => item.id !== id);
+  lista = lista.filter((item) => item.id !== id);
   salvar();
 }
 
 export function concluir(id) {
-  lista = lista.map(item =>
-    item.id === id ? { ...item, concluido: !item.concluido } : item
+  lista = lista.map((item) =>
+    item.id === id ? { ...item, concluido: !item.concluido } : item,
   );
   salvar();
 }
 
-export function limparLista(){
-    lista = [];
-    salvar()
+export function limparLista() {
+  lista = [];
+  salvar();
 }

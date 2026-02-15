@@ -6,20 +6,20 @@
   :root {
     /* ===== TEMA CLARO — Clarity SaaS ===== */
 
-    --cor-fundo: #F1F5F9;         /* Um pouco mais escuro */
+    --cor-fundo: #8c939e;         /* Um pouco mais escuro */
     --cor-card: #FFFFFF;
-    --cor-borda: #CBD5E1;         /* Borda mais visível */
+    --cor-borda: #c2e39a;         /* Borda mais visível */
 
     --cor-texto-principal: #0B1220;  /* Mais profundo */
     --cor-texto-secundario: #475569; /* Mais contraste */
 
-    --cor-primaria: #1D4ED8;        /* Azul mais forte */
+    --cor-primaria: #6382d7;        /* Azul mais forte */
     --cor-primaria-hover: #1E40AF;
 
-    --cor-sucesso: #15803D;
-    --cor-sucesso-hover: #166534;
+    --cor-sucesso: #5fbe5f;
+    --cor-sucesso-hover: #35b867;
 
-    --cor-erro: #B91C1C;
+    --cor-erro: #d12f2f;
     --cor-erro-hover: #991B1B;
   }
 

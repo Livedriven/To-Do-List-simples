@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class", // Essencial para ativar via classe no HTML
-  content: ["./index.html", "./js/**/*.{js}"],
+  content: ["./index.html", "./js/**/*.js"],
   theme: {
     extend:{
       colors: {
@@ -14,6 +14,7 @@ module.exports = {
         "primaria-hover": "var(--cor-primaria-hover)",
         sucesso: "var(--cor-sucesso)",
         erro: "var(--cor-erro)",
+        "erro-hover": "var(--cor-erro-hover)",
         branco: "#FFFFFF", // utilitário fixo
       },
     },

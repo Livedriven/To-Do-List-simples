@@ -11,19 +11,25 @@ export function renderizarLista(array, ul, onExcluir, onConcluir) {
     const span = document.createElement("span");
 
     li.classList.add(
-      "p-2.5",
+      "pt-2",
+      "pb-2",
       "flex",
       "flex-col",
       "items-center",
       "border",
+      "bg-fundo",
       "border-borda",
       "text-texto-base",
       "rounded-xl",
     );
-    div.classList.add("flex", "flex-row","justify-between", "gap-6");
+    div.classList.add("flex", "flex-row", "justify-between", "gap-2");
 
     span.textContent = item.nome;
-    if (item.concluido) li.classList.add("bg-sucesso");
+
+    if (item.concluido) {
+      li.classList.add("bg-sucesso");
+      span.classList.add("text-gray-200", "line-through")
+    }
 
     excluir.textContent = "❌";
     excluir.classList.add("excluir");
