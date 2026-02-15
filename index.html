@@ -6,22 +6,25 @@
     <title>Lista de tarefas</title>
     <link rel="stylesheet" href="./cssTailwind/output.css">
 </head>
-<body class="bg-fundo">
-    <main class="bg-fundo min-h-96 flex itens-center justify-center">
-        <section class="bg-card w-96 h-auto m-2 p-3.5 rounded-xl border border-borda">
-            <div>
+<body class=" min-h-screen bg-fundo grid grid-rows-[auto_1fr_auto]">
+    <header class="bg-card p-3 rounded-b-3xl">
+        <h1 class="text-center text-texto-base">To-Do List</h1>
+    </header>
+    <main class="bg-fundo grid grid-cols-1 md:grid-cols-2 place-items-center gap-2 p-4">
+        <section class="bg-card h-auto m-2 p-3.5 rounded-xl border border-borda">
+            <div class="">
                 <label for="adicionandoTarefa" class="text-texto-base block mb-2.5 text-sm text-center">Adicione uma tarefa</label>
                 <input class="p-1.5 rounded-xl bottom-0.5 border border-borda" type="text" id="entrada" name="adicionandoTarefa" placeholder="Digite o nome da tarefa">
-                <button id="btn" class="bg-primaria hover:bg-primaria-hover p-1.5 rounded-xl cursor-pointer m-0.5 border border-borda">Adicionar</button>
-                <button id="btnClean" class="border border-borda">Limpar</button>
-                <ul id="imprimir" class="list-none m-2.5 mr-auto"></ul>
+                <button id="btn" class="bg-primaria hover:bg-primaria-hover text-branco p-1.5 rounded-xl cursor-pointer m-0.5 border border-borda transition-colors duration-200">Adicionar</button>
+                <button id="btnClean" class="border border-borda p-1.5 rounded-md">Limpar</button>
+                <ul id="imprimir" class="list-none w-[70%] m-2.5 mr-auto flex flex-col gap-2"></ul>
             </div>
         </section>
-        <section class="bg-card w-96 h-auto m-2 p-3.5 rounded-xl flex items-center flex-col border border-borda">
+        <section class="bg-card h-auto m-2 p-3.5 rounded-xl flex items-center flex-col border border-borda">
             <div>
                 <label for="filtrandoLista" class="text-texto-base block text-center">Filtro</label>
                 <input class="p-1.5 rounded-xl border border-borda text-texto-sub" type="text" id="filtro" name="filtrandoLista" placeholder="Digite oque você deseja filtrar">
-                <ul id="imprimirFiltro" class="list-none m-2.5 mr-auto"></ul>     
+                <ul id="imprimirFiltro" class="list-none w-[70%] m-2.5 flex flex-col gap-2"></ul>     
             </div>
         </section>
     </main>    

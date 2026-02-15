@@ -1,7 +1,7 @@
 // main.js
 
 import * as store from "./store.js";
-import { renderizarLista, filtrar } from "./ui.js";
+import { renderizarLista, filtrar} from "./ui.js";
 
 const inputEntrada = document.getElementById("entrada");
 const btn = document.getElementById("btn");
@@ -46,7 +46,6 @@ btn.addEventListener("click", () => {
 
 btnClean.addEventListener("click", () => {
   store.limparLista();
-  store.carregar();
   store.salvar();
   atualizarUI();
 });

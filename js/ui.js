@@ -3,14 +3,27 @@
 export function renderizarLista(array, ul, onExcluir, onConcluir) {
   ul.innerHTML = "";
 
-  array.forEach(item => {
+  array.forEach((item) => {
     const li = document.createElement("li");
     const div = document.createElement("div");
     const excluir = document.createElement("button");
     const concluido = document.createElement("button");
+    const span = document.createElement("span");
 
-    li.textContent = item.nome;
-    if (item.concluido) li.classList.add("feito");
+    li.classList.add(
+      "p-2.5",
+      "flex",
+      "flex-col",
+      "items-center",
+      "border",
+      "border-borda",
+      "text-texto-base",
+      "rounded-xl",
+    );
+    div.classList.add("flex", "flex-row","justify-between", "gap-6");
+
+    span.textContent = item.nome;
+    if (item.concluido) li.classList.add("bg-sucesso");
 
     excluir.textContent = "❌";
     excluir.classList.add("excluir");
@@ -18,6 +31,7 @@ export function renderizarLista(array, ul, onExcluir, onConcluir) {
     concluido.textContent = "✅";
     concluido.classList.add("concluido");
 
+    li.appendChild(span);
     li.appendChild(div);
     div.appendChild(concluido);
     div.appendChild(excluir);
@@ -29,7 +43,7 @@ export function renderizarLista(array, ul, onExcluir, onConcluir) {
 }
 
 export function filtrar(lista, termo) {
-  return lista.filter(item =>
-    item.nome.toLowerCase().includes(termo.toLowerCase())
+  return lista.filter((item) =>
+    item.nome.toLowerCase().includes(termo.toLowerCase()),
   );
 }
