@@ -1,34 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de tarefas</title>
-    <link rel="stylesheet" href="./cssTailwind/output.css">
-</head>
-<body class="min-h-screen bg-fundo grid grid-rows-[auto_1fr_auto]">
+    <link rel="stylesheet" href="./cssTailwind/output.css" />
+  </head>
+  <body class="min-h-screen bg-fundo grid grid-rows-[auto_1fr_auto]">
     <header class="bg-card flex justify-around items-center p-3 rounded-b-3xl">
-        <h1 class="text-center text-texto-base text-sm md:text-lg">To-Do List</h1>
-        <div id="btn-theme" class="p-1 border border-borda rounded-lg cursor-pointer text-texto-base dark:bg-emerald-600">C/D</div>
+      <h1 class="text-center text-texto-base text-sm md:text-lg">To-Do List</h1>
+      <div id="btn-theme" class="cursor-pointer p-2 bg-white"><i data-lucide="sun-medium"></i></div>
     </header>
     <main class="grid grid-cols-1 md:grid-cols-2 place-items-center gap-2 p-4">
-        <section class="bg-card flex flex-col justify-center items-center h-auto m-2 p-3.5 rounded-xl border border-borda shadow-lg">
-            <div class="w-[100%]">
-                <label for="adicionandoTarefa" class="text-texto-base block mb-2.5 text-sm md:text-lg text-center">Adicione uma tarefa</label>
-                <input class="p-1.5 mb-2  rounded-xl bottom-0.5 border border-borda block md:inline" type="text" id="entrada" name="adicionandoTarefa" placeholder="Digite o nome da tarefa">
-                <button id="btn" class="bg-primaria hover:bg-primaria-hover text-branco p-1.5 rounded-xl cursor-pointer m-0.5 border border-borda transition-colors duration-200">Adicionar</button>
-                <button id="btnClean" class="bg-erro hover:bg-erro-hover transition-colors duration-300 text-branco border border-borda p-1.5 rounded-md">Limpar</button>
-                <ul id="imprimir" class="list-none w-[70%] m-2.5 mr-auto flex flex-col gap-2"></ul>
-            </div>
-        </section>
-        <section class="bg-card h-auto m-2 p-3.5 rounded-xl flex items-center flex-col border border-borda">
-            <div>
-                <label for="filtrandoLista" class="text-texto-base block text-center">Filtro</label>
-                <input class="p-1.5 rounded-xl border border-borda text-texto-sub" type="text" id="filtro" name="filtrandoLista" placeholder="Digite oque você deseja filtrar">
-                <ul id="imprimirFiltro" class=" list-none w-[70%] m-2.5 flex flex-col gap-2"></ul>     
-            </div>
-        </section>
-    </main>    
+      <section
+        class="bg-card flex flex-col justify-center items-center h-auto m-2 p-3.5 rounded-xl border border-borda shadow-lg"
+      >
+        <div class="w-[100%]">
+          <label
+            for="adicionandoTarefa"
+            class="text-texto-base block mb-2.5 text-sm md:text-lg text-center"
+            >Adicione uma tarefa</label
+          >
+          <input
+            class="p-1.5 mb-2 rounded-xl bottom-0.5 border border-borda block md:inline"
+            type="text"
+            id="entrada"
+            name="adicionandoTarefa"
+            placeholder="Digite o nome da tarefa"
+          />
+          <button
+            id="btn"
+            class="bg-primaria hover:bg-primaria-hover text-branco p-1.5 rounded-xl cursor-pointer m-0.5 border border-borda transition-colors duration-200"
+          >
+            Adicionar
+          </button>
+          <button
+            id="btnClean"
+            class="bg-erro hover:bg-erro-hover transition-colors duration-300 text-branco border border-borda p-1.5 rounded-md"
+          >
+            Limpar
+          </button>
+          <ul
+            id="imprimir"
+            class="list-none w-[70%] m-2.5 mr-auto flex flex-col gap-2"
+          ></ul>
+        </div>
+      </section>
+      <section
+        class="bg-card h-auto m-2 p-3.5 rounded-xl flex items-center flex-col border border-borda"
+      >
+        <div>
+          <label for="filtrandoLista" class="text-texto-base block text-center"
+            >Filtro</label
+          >
+          <input
+            class="p-1.5 rounded-xl border border-borda text-texto-sub"
+            type="text"
+            id="filtro"
+            name="filtrandoLista"
+            placeholder="Digite oque você deseja filtrar"
+          />
+          <ul
+            id="imprimirFiltro"
+            class="list-none w-[70%] m-2.5 flex flex-col gap-2"
+          ></ul>
+        </div>
+      </section>
+    </main>
     <script type="module" src="./js/main.js" defer></script>
-</body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
